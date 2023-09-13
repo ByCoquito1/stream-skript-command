@@ -1,0 +1,41 @@
+# Made by Raven Solutions & bycoquito
+
+options:
+  command: stream
+  version: 1.0
+
+  permission-node: raven.command.stream # Permission necesarry to execute this command
+  no-permission-message: &cYou don't have permission to execute this command.
+  cooldown: 60 seconds # Cooldown in seconds
+
+on enable:
+  wait 1 second
+  send " " to console
+  send "&d&lLive &5&lStream &fSkript" to console
+  send "&7Developed by &4&lbycoquito" to console
+  send "&7Version: &f{@version}" to console
+  send " " to console
+  stop
+
+command /stream [<text>]:
+  permission: {@permission-node}
+  permission message: {@no-permission-message}
+  aliases: /live, /directo
+  trigger:
+    if args-1 is not set:
+      send "&cYou must add a link. Usage: /stream <link>" to player
+      stop
+    set {_waited} to difference between {last-stream.%player%} and now
+    if {_waited} is less than {@cooldown}:
+      send "&fYou must wait &d1 minute&f before using this command again." to player
+      stop
+    set {last-stream.%player%} to now
+    if arg-1 contains "youtube.com" or arg-1 contains "youtu.be" or arg-1 contains "twitch.tv" or arg-1 contains "trovo.live":
+      broadcast ""
+      broadcast "&d&lLive Stream"
+      broadcast "&7Streamed by &f%player%"
+      broadcast "&a&lWatch Live: &b&n[Click Here](&7%arg-1%&b&n)"
+      broadcast ""
+    else:
+      send "&cYou can only use links from YouTube, Twitch, or Trovo." to player
+    stop
