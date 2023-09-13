@@ -2,7 +2,7 @@
 **This is a free Skript made by Raven Solutions & bycoquito.**
 
 
-With this sample Skript you can add the /stream command to your Minecraft Server, you will need to install on your server the Skript Plugin available here, when you start the server with the Skript Jar Plugin, you only need to drop the StreamCommand File into the Skript folder on the plugins folder.
+With this sample Skript you can add the /stream command to your Minecraft Server, you will need to install on your server the Skript Plugin available [here]([url](https://dev.bukkit.org/projects/skript)), when you start the server with the Skript Jar Plugin, you only need to drop the StreamCommand File into the Skript folder on the plugins folder.
 
 
 **YOU CAN NOT SELL IT**
